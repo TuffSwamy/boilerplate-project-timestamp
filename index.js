@@ -26,7 +26,7 @@ app.get("/api/hello", function (req, res) {
 
 app.get("/api/:date?", function(req, res) {
   let timeStamp = req.params.date;
-  let dateObject = timeStamp === null ? new Date() : new Date(timeStamp);  
+  let dateObject = !timeStamp ? new Date() : new Date(timeStamp);  
   if (dateObject.toString() === "Invalid Date") {
     dateObject = new Date(parseInt(timeStamp));
   }
